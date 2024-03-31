@@ -13,6 +13,7 @@
     src = inputs.open-webui + /backend;
   };
   pip = {
+    pypiSnapshotDate = "2024-04-01";
     flattenDependencies = true;
     requirementsFiles = [
       "${inputs.open-webui}/backend/requirements.txt"
