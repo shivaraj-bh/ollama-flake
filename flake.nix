@@ -79,7 +79,26 @@
                 uvicorn main:app --host 0.0.0.0 --port 1111 --forwarded-allow-ips '*'
               '';
             };
+            readiness_probe.http_get = {
+              # TODO: wire the host and port config after open-webui is extracted to be a service
+              host = "0.0.0.0";
+              port = 1111;
+            };
             depends_on."ollama-models".condition = "process_completed_successfully";
+          };
+
+          settings.processes.open-browser =
+          {
+            command = pkgs.writeShellApplication {
+              name = "open-browser";
+              runtimeInputs = if pkgs.stdenv.isLinux then [ pkgs.xdg-utils ] else [ ];
+              # TODO: wire the host and port config after open-webui is extracted to be a service
+              text = ''
+                ${ if pkgs.stdenv.isLinux then "xdg-open http://0.0.0.0:1111" else "" }
+                ${ if pkgs.stdenv.isDarwin then "open http://0.0.0.0:1111" else "" }
+              '';
+            };
+            depends_on."open-webui".condition = "process_healthy";
           };
         };
       };
