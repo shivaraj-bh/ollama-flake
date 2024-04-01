@@ -10,8 +10,10 @@ nix run
 
 ## Up Next
 
-- [ ] Open browser (`xdg-open` on Linux and `open` on MacOS) after the frontend process starts
+- [x] Open browser (`xdg-open` on Linux and `open` on MacOS) after the frontend process starts
 - [ ] Test GPU acceleration and document the process
+- [ ] MacOS support
+- [ ] Add tests
 
 ## Discussions
 
