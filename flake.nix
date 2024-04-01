@@ -73,7 +73,8 @@
                 chmod -R u+rw ./data/open-webui
                 cd ./data/open-webui/backend
 
-                OLLAMA_API_BASE_URL=${ollama-cfg.host}:${builtins.toString ollama-cfg.port}/api
+                # TODO: protocol must be an option
+                OLLAMA_API_BASE_URL=http://${ollama-cfg.host}:${builtins.toString ollama-cfg.port}/api
                 export OLLAMA_API_BASE_URL
                 uvicorn main:app --host 0.0.0.0 --port 1111 --forwarded-allow-ips '*'
               '';
