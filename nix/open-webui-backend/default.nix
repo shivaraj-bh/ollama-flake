@@ -3,7 +3,7 @@
     dream2nix.modules.dream2nix.pip
   ];
 
-  deps = {nixpkgs, ...}: {
+  deps = { nixpkgs, ... }: {
     python = nixpkgs.python39;
   };
 
