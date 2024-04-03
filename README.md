@@ -4,17 +4,17 @@ Run Ollama stack (the server and interactive webui) natively with a single comma
 
 ## Getting started
 
-### Run ollama server (CPU) with open-webui
+### CPU; with open-webui
 ```sh
 nix run
 ```
 
-### Run ollama server (GPU; CUDA)
+### GPU; CUDA
 ```sh
 nix run .#cuda
 ```
 
-### Run ollama server (GPU; ROCm)
+### GPU; ROCm
 ```sh
 nix run .#rocm
 ```
