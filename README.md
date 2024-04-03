@@ -6,17 +6,17 @@ Run Ollama stack (the server and interactive webui) natively with a single comma
 
 ### CPU; with open-webui
 ```sh
-nix run
+nix run github:shivaraj-bh/nixify-ollama
 ```
 
 ### GPU; CUDA
 ```sh
-nix run .#cuda
+nix run github:shivaraj-bh/nixify-ollama#cuda
 ```
 
 ### GPU; ROCm
 ```sh
-nix run .#rocm
+nix run github:shivaraj-bh/nixify-ollama#rocm
 ```
 
 ## Up Next
