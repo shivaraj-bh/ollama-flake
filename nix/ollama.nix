@@ -40,9 +40,6 @@
         enable = true;
         host = "0.0.0.0";
         models = [ "llama2-uncensored" ];
-        extraEnvs = {
-          OLLAMA_DEBUG = "1";
-        };
       };
       settings = lib.optionalAttrs (cfg.open-webui.enable) {
         processes.open-webui =
