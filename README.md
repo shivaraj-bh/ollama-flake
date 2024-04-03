@@ -13,7 +13,8 @@ nix run
 - [x] Open browser (`xdg-open` on Linux and `open` on MacOS) after the frontend process starts
 - [ ] Test GPU acceleration and document the process
 - [ ] MacOS support
-- [ ] Add tests
+- [ ] Add tests/CI
+- [ ] Export home-manager configuration for ollama server (inspired by NixOS' ollama service module)
 
 ## Discussions
 
