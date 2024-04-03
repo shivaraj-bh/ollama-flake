@@ -1,22 +1,22 @@
-# nixify-ollama
+# ollama-flake
 
-Run Ollama stack (the server and interactive webui) natively with a single command, using [services-flake](https://github.com/juspay/services-flake).
+Run Ollama stack (the server and interactive webui) natively, using [services-flake](https://github.com/juspay/services-flake).
 
 ## Getting started
 
 ### CPU; with open-webui
 ```sh
-nix run github:shivaraj-bh/nixify-ollama
+nix run github:shivaraj-bh/ollama-flake
 ```
 
 ### GPU; CUDA
 ```sh
-nix run github:shivaraj-bh/nixify-ollama#cuda
+nix run github:shivaraj-bh/ollama-flake#cuda
 ```
 
 ### GPU; ROCm
 ```sh
-nix run github:shivaraj-bh/nixify-ollama#rocm
+nix run github:shivaraj-bh/ollama-flake#rocm
 ```
 
 ## Up Next
