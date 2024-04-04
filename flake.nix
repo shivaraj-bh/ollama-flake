@@ -63,12 +63,24 @@
               imports = [ common ];
               services.ollama-stack.extraOllamaConfig = {
                 package = pkgs.ollama.override { acceleration = "cuda"; };
+                extraEnvs = {
+                  # # See https://github.com/ollama/ollama/blob/9768e2dc7574c36608bb04ac39a3b79e639a837f/docs/gpu.md?plain=1#L32-L38
+                  # CUDA_VISIBLE_DEVICES = "0,2";
+                };
               };
             };
             rocm = {
               imports = [ common ];
               services.ollama-stack.extraOllamaConfig = {
                 package = pkgs.ollama.override { acceleration = "rocm"; };
+                extraEnvs = {
+                  # # See https://github.com/ollama/ollama/blob/9768e2dc7574c36608bb04ac39a3b79e639a837f/docs/gpu.md?plain=1#L55-L86
+                  # HSA_OVERRIDE_GFX_VERSION = “10.3.0”;
+                  # # See docs: https://rocm.docs.amd.com/en/latest/conceptual/gpu-isolation.html#rocr-visible-devices
+                  # ROCR_VISIBLE_DEVICES = "0,GPU-DEADBEEFDEADBEEF";
+                  # # See https://rocm.docs.amd.com/en/latest/conceptual/gpu-isolation.html#hip-visible-devices
+                  # HIP_VISIBLE_DEVICES = "0,2";
+                };
               };
             };
           };
