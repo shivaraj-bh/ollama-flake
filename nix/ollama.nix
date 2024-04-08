@@ -49,7 +49,7 @@
           {
             command = pkgs.writeShellApplication {
               name = "open-webui";
-              runtimeInputs = [ self'.packages.open-webui-backend.pyEnv ];
+              runtimeInputs = [ self'.packages.open-webui-backend-pyEnv ];
               text = ''
                 set -x
                 # TODO: make a service and give it a dataDir option
