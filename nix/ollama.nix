@@ -70,10 +70,17 @@
                 uvicorn main:app --host 0.0.0.0 --port 1111 --forwarded-allow-ips '*'
               '';
             };
-            readiness_probe.http_get = {
-              # TODO: wire the host and port config after open-webui is extracted to be a service
-              host = "0.0.0.0";
-              port = 1111;
+            readiness_probe = {
+              http_get = {
+                # TODO: wire the host and port config after open-webui is extracted to be a service
+                host = "0.0.0.0";
+                port = 1111;
+              };
+              initial_delay_seconds = 2;
+              period_seconds = 10;
+              timeout_seconds = 4;
+              success_threshold = 1;
+              failure_threshold = 5;
             };
             depends_on."ollama-models".condition = "process_completed_successfully";
           };
