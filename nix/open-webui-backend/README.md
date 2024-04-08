@@ -1,7 +1,16 @@
 # open-webui-backend
 
-Generate the lock file:
+This package depends on `pyproject.toml` and `pdm.lock` file. The `pyproject.toml` is generated with `pdm import` on the `requirements.txt` file of `open-webui/backend`.
+
+To generate the `pyproject.toml` run:
+
+```sh
+nix run .#open-webui-backend.req2py
+```
+
+And to generate the `pdm.lock` file:
 
 ```sh
 nix run .#open-webui-backend.lock
 ```
+
