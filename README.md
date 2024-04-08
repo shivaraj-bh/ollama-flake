@@ -24,7 +24,7 @@ nix run github:shivaraj-bh/ollama-flake#rocm
 - [x] Open browser (`xdg-open` on Linux and `open` on MacOS) after the frontend process starts
 - [ ] Test GPU acceleration and document the process
   - [x] Tested on CUDA. Need to document the driver compatiblity issues, with solutions.
-- [ ] MacOS support
+- [x] MacOS support <https://github.com/shivaraj-bh/ollama-flake/pull/3>
 - [ ] Add tests/CI
 - [ ] Export home-manager configuration for ollama server (inspired by NixOS' ollama service module)
 
