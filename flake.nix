@@ -5,7 +5,7 @@
     systems.url = "github:nix-systems/default";
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     services-flake.url = "github:juspay/services-flake/ollama";
-    dream2nix.url = "github:shivaraj-bh/dream2nix/pdm-pyenv";
+    dream2nix.url = "github:nix-community/dream2nix";
     dream2nix.inputs.nixpkgs.follows = "nixpkgs";
 
     open-webui = {

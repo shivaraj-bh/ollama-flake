@@ -9,16 +9,15 @@
         "pyproject-nix": "pyproject-nix"
       },
       "locked": {
-        "lastModified": 1712564533,
+        "lastModified": 1712575441,
         "narHash": "sha256-kQQZjETLyxbhslVi/4CkSOYs+Z03HFFWeNChhJv6UtE=",
-        "owner": "shivaraj-bh",
+        "owner": "nix-community",
         "repo": "dream2nix",
-        "rev": "b218d28477cd6ab5a993e6e262448e82a9bf9a26",
+        "rev": "49f14262e3e6dff1e1b96588cdbdb5d4d77c9bde",
         "type": "github"
       },
       "original": {
-        "owner": "shivaraj-bh",
-        "ref": "pdm-pyenv",
+        "owner": "nix-community",
         "repo": "dream2nix",
         "type": "github"
       }
