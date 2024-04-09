@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:ca8587f1ebf44308bc1821a6f84289fe44394565c8c13f2afd666cf718889ed7"
+content_hash = "sha256:c8e25dbf851f8cbc7e53529d0b5de6c6588a0f4270ff1ceef9c70eb909ebe566"
 
 [[package]]
 name = "aiohttp"
@@ -370,6 +370,38 @@ files = [
 ]
 
 [[package]]
+name = "boto3"
+version = "1.34.80"
+requires_python = ">=3.8"
+summary = "The AWS SDK for Python"
+groups = ["default"]
+dependencies = [
+    "botocore<1.35.0,>=1.34.80",
+    "jmespath<2.0.0,>=0.7.1",
+    "s3transfer<0.11.0,>=0.10.0",
+]
+files = [
+    {file = "boto3-1.34.80-py3-none-any.whl", hash = "sha256:bb8f433c04dcdffbd4a802df56c1c30f2be23b1161fd8fb45e4b76c1487ec122"},
+    {file = "boto3-1.34.80.tar.gz", hash = "sha256:5627f6ecadb46fc7c9f8c368baf948f1b00a3fd2f8eb1275c254469853ad8fdb"},
+]
+
+[[package]]
+name = "botocore"
+version = "1.34.80"
+requires_python = ">=3.8"
+summary = "Low-level, data-driven core of boto 3."
+groups = ["default"]
+dependencies = [
+    "jmespath<2.0.0,>=0.7.1",
+    "python-dateutil<3.0.0,>=2.1",
+    "urllib3!=2.2.0,<3,>=1.25.4; python_version >= \"3.10\"",
+]
+files = [
+    {file = "botocore-1.34.80-py3-none-any.whl", hash = "sha256:354a00f03faba52acc6f1a84fa4f035d48541633be98ccc24b59dc544f679f8b"},
+    {file = "botocore-1.34.80.tar.gz", hash = "sha256:8402262e819f3d46df504bbd781e770858c0130b90f660699f75ef3a63abca5a"},
+]
+
+[[package]]
 name = "build"
 version = "1.2.1"
 requires_python = ">=3.8"
@@ -519,6 +551,16 @@ files = [
     {file = "charset_normalizer-3.3.2-cp312-cp312-win32.whl", hash = "sha256:d965bba47ddeec8cd560687584e88cf699fd28f192ceb452d1d7ee807c5597b7"},
     {file = "charset_normalizer-3.3.2-cp312-cp312-win_amd64.whl", hash = "sha256:96b02a3dc4381e5494fad39be677abcb5e6634bf7b4fa83a6dd3112607547001"},
     {file = "charset_normalizer-3.3.2-py3-none-any.whl", hash = "sha256:3e4d1f6587322d2788836a99c69062fbb091331ec940e02d12d179c1d53e25fc"},
+]
+
+[[package]]
+name = "chevron"
+version = "0.14.0"
+summary = "Mustache templating language renderer"
+groups = ["default"]
+files = [
+    {file = "chevron-0.14.0-py3-none-any.whl", hash = "sha256:fbf996a709f8da2e745ef763f482ce2d311aa817d287593a5b990d6d6e4f0443"},
+    {file = "chevron-0.14.0.tar.gz", hash = "sha256:87613aafdf6d77b6a90ff073165a61ae5086e21ad49057aa0e53681601800ebf"},
 ]
 
 [[package]]
@@ -714,7 +756,7 @@ files = [
 
 [[package]]
 name = "deepdiff"
-version = "7.0.0"
+version = "7.0.1"
 requires_python = ">=3.8"
 summary = "Deep Difference and Search of any Python object/data. Recreate objects by adding adding deltas to each other."
 groups = ["default"]
@@ -722,8 +764,19 @@ dependencies = [
     "ordered-set<4.2.0,>=4.1.0",
 ]
 files = [
-    {file = "deepdiff-7.0.0-py3-none-any.whl", hash = "sha256:f7bbb845f83ad6b9453a4ab07c579bdc6f1df712edc515740455a9b88c2bc41a"},
-    {file = "deepdiff-7.0.0.tar.gz", hash = "sha256:4e07da4f2a1ae069b7465d264715764f3b36ce181ec89f47050ead61711b1e9a"},
+    {file = "deepdiff-7.0.1-py3-none-any.whl", hash = "sha256:447760081918216aa4fd4ca78a4b6a848b81307b2ea94c810255334b759e1dc3"},
+    {file = "deepdiff-7.0.1.tar.gz", hash = "sha256:260c16f052d4badbf60351b4f77e8390bee03a0b516246f6839bc813fb429ddf"},
+]
+
+[[package]]
+name = "defusedxml"
+version = "0.7.1"
+requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+summary = "XML bomb protection for Python stdlib modules"
+groups = ["default"]
+files = [
+    {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
+    {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
 
 [[package]]
@@ -762,16 +815,16 @@ files = [
 
 [[package]]
 name = "ecdsa"
-version = "0.18.0"
-requires_python = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "0.19.0"
+requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.6"
 summary = "ECDSA cryptographic signature library (pure python)"
 groups = ["default"]
 dependencies = [
     "six>=1.9.0",
 ]
 files = [
-    {file = "ecdsa-0.18.0-py2.py3-none-any.whl", hash = "sha256:80600258e7ed2f16b9aa1d7c295bd70194109ad5a30fdee0eaeefef1d4c559dd"},
-    {file = "ecdsa-0.18.0.tar.gz", hash = "sha256:190348041559e21b22a1d65cee485282ca11a6f81d503fddb84d5017e9ed1e49"},
+    {file = "ecdsa-0.19.0-py2.py3-none-any.whl", hash = "sha256:2cea9b88407fdac7bbeca0833b189e4c9c53f2ef1e1eaa29f6224dbc809b707a"},
+    {file = "ecdsa-0.19.0.tar.gz", hash = "sha256:60eaad1199659900dd0af521ed462b793bbdf867432b3948e87416ae4caf6bf8"},
 ]
 
 [[package]]
@@ -915,6 +968,57 @@ files = [
 ]
 
 [[package]]
+name = "fonttools"
+version = "4.51.0"
+requires_python = ">=3.8"
+summary = "Tools to manipulate font files"
+groups = ["default"]
+files = [
+    {file = "fonttools-4.51.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:84d7751f4468dd8cdd03ddada18b8b0857a5beec80bce9f435742abc9a851a74"},
+    {file = "fonttools-4.51.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:8b4850fa2ef2cfbc1d1f689bc159ef0f45d8d83298c1425838095bf53ef46308"},
+    {file = "fonttools-4.51.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b5b48a1121117047d82695d276c2af2ee3a24ffe0f502ed581acc2673ecf1037"},
+    {file = "fonttools-4.51.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:180194c7fe60c989bb627d7ed5011f2bef1c4d36ecf3ec64daec8302f1ae0716"},
+    {file = "fonttools-4.51.0-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:96a48e137c36be55e68845fc4284533bda2980f8d6f835e26bca79d7e2006438"},
+    {file = "fonttools-4.51.0-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:806e7912c32a657fa39d2d6eb1d3012d35f841387c8fc6cf349ed70b7c340039"},
+    {file = "fonttools-4.51.0-cp310-cp310-win32.whl", hash = "sha256:32b17504696f605e9e960647c5f64b35704782a502cc26a37b800b4d69ff3c77"},
+    {file = "fonttools-4.51.0-cp310-cp310-win_amd64.whl", hash = "sha256:c7e91abdfae1b5c9e3a543f48ce96013f9a08c6c9668f1e6be0beabf0a569c1b"},
+    {file = "fonttools-4.51.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:a8feca65bab31479d795b0d16c9a9852902e3a3c0630678efb0b2b7941ea9c74"},
+    {file = "fonttools-4.51.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:8ac27f436e8af7779f0bb4d5425aa3535270494d3bc5459ed27de3f03151e4c2"},
+    {file = "fonttools-4.51.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0e19bd9e9964a09cd2433a4b100ca7f34e34731e0758e13ba9a1ed6e5468cc0f"},
+    {file = "fonttools-4.51.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b2b92381f37b39ba2fc98c3a45a9d6383bfc9916a87d66ccb6553f7bdd129097"},
+    {file = "fonttools-4.51.0-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:5f6bc991d1610f5c3bbe997b0233cbc234b8e82fa99fc0b2932dc1ca5e5afec0"},
+    {file = "fonttools-4.51.0-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:9696fe9f3f0c32e9a321d5268208a7cc9205a52f99b89479d1b035ed54c923f1"},
+    {file = "fonttools-4.51.0-cp311-cp311-win32.whl", hash = "sha256:3bee3f3bd9fa1d5ee616ccfd13b27ca605c2b4270e45715bd2883e9504735034"},
+    {file = "fonttools-4.51.0-cp311-cp311-win_amd64.whl", hash = "sha256:0f08c901d3866a8905363619e3741c33f0a83a680d92a9f0e575985c2634fcc1"},
+    {file = "fonttools-4.51.0-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:4060acc2bfa2d8e98117828a238889f13b6f69d59f4f2d5857eece5277b829ba"},
+    {file = "fonttools-4.51.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:1250e818b5f8a679ad79660855528120a8f0288f8f30ec88b83db51515411fcc"},
+    {file = "fonttools-4.51.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:76f1777d8b3386479ffb4a282e74318e730014d86ce60f016908d9801af9ca2a"},
+    {file = "fonttools-4.51.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8b5ad456813d93b9c4b7ee55302208db2b45324315129d85275c01f5cb7e61a2"},
+    {file = "fonttools-4.51.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:68b3fb7775a923be73e739f92f7e8a72725fd333eab24834041365d2278c3671"},
+    {file = "fonttools-4.51.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:8e2f1a4499e3b5ee82c19b5ee57f0294673125c65b0a1ff3764ea1f9db2f9ef5"},
+    {file = "fonttools-4.51.0-cp312-cp312-win32.whl", hash = "sha256:278e50f6b003c6aed19bae2242b364e575bcb16304b53f2b64f6551b9c000e15"},
+    {file = "fonttools-4.51.0-cp312-cp312-win_amd64.whl", hash = "sha256:b3c61423f22165541b9403ee39874dcae84cd57a9078b82e1dce8cb06b07fa2e"},
+    {file = "fonttools-4.51.0-py3-none-any.whl", hash = "sha256:15c94eeef6b095831067f72c825eb0e2d48bb4cea0647c1b05c981ecba2bf39f"},
+    {file = "fonttools-4.51.0.tar.gz", hash = "sha256:dc0673361331566d7a663d7ce0f6fdcbfbdc1f59c6e3ed1165ad7202ca183c68"},
+]
+
+[[package]]
+name = "fpdf2"
+version = "2.7.8"
+requires_python = ">=3.7"
+summary = "Simple & fast PDF generation for Python"
+groups = ["default"]
+dependencies = [
+    "Pillow!=9.2.*,>=6.2.2",
+    "defusedxml",
+    "fonttools>=4.34.0",
+]
+files = [
+    {file = "fpdf2-2.7.8-py2.py3-none-any.whl", hash = "sha256:b09a297cbb14878ec4443ea2bef504d15e5cf4d92903118f013cb05e204fd491"},
+    {file = "fpdf2-2.7.8.tar.gz", hash = "sha256:21733fe27cc75021e5a4d7d69de95e185adf9717b1f9b1e14aa27d277d5c10fd"},
+]
+
+[[package]]
 name = "frozenlist"
 version = "1.4.1"
 requires_python = ">=3.8"
@@ -983,18 +1087,19 @@ files = [
 
 [[package]]
 name = "google-ai-generativelanguage"
-version = "0.4.0"
+version = "0.6.1"
 requires_python = ">=3.7"
 summary = "Google Ai Generativelanguage API client library"
 groups = ["default"]
 dependencies = [
-    "google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.0",
+    "google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1",
+    "google-auth!=2.24.0,!=2.25.0,<3.0.0dev,>=2.14.1",
     "proto-plus<2.0.0dev,>=1.22.3",
     "protobuf!=3.20.0,!=3.20.1,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.19.5",
 ]
 files = [
-    {file = "google-ai-generativelanguage-0.4.0.tar.gz", hash = "sha256:c8199066c08f74c4e91290778329bb9f357ba1ea5d6f82de2bc0d10552bf4f8c"},
-    {file = "google_ai_generativelanguage-0.4.0-py3-none-any.whl", hash = "sha256:e4c425376c1ee26c78acbc49a24f735f90ebfa81bf1a06495fae509a2433232c"},
+    {file = "google-ai-generativelanguage-0.6.1.tar.gz", hash = "sha256:4abf37000718b20c43f4b90672b3ab8850738b02457efffd11f3184e03272ed2"},
+    {file = "google_ai_generativelanguage-0.6.1-py3-none-any.whl", hash = "sha256:d2afc991c47663bdf65bd4aabcd89723550b81ad0a6d0be8bfb0160755da4cf0"},
 ]
 
 [[package]]
@@ -1035,6 +1140,24 @@ files = [
 ]
 
 [[package]]
+name = "google-api-python-client"
+version = "2.125.0"
+requires_python = ">=3.7"
+summary = "Google API Client Library for Python"
+groups = ["default"]
+dependencies = [
+    "google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0.dev0,>=1.31.5",
+    "google-auth!=2.24.0,!=2.25.0,<3.0.0.dev0,>=1.32.0",
+    "google-auth-httplib2<1.0.0,>=0.2.0",
+    "httplib2<1.dev0,>=0.19.0",
+    "uritemplate<5,>=3.0.1",
+]
+files = [
+    {file = "google-api-python-client-2.125.0.tar.gz", hash = "sha256:51a0385cff65ec135106e8be60ee7112557396dde5f44113ae23912baddda143"},
+    {file = "google_api_python_client-2.125.0-py2.py3-none-any.whl", hash = "sha256:0a62b60fbd61b61a455f15d925264b3301099b67cafd2d33cf8bf151f1fca4f4"},
+]
+
+[[package]]
 name = "google-auth"
 version = "2.29.0"
 requires_python = ">=3.7"
@@ -1051,14 +1174,29 @@ files = [
 ]
 
 [[package]]
+name = "google-auth-httplib2"
+version = "0.2.0"
+summary = "Google Authentication Library: httplib2 transport"
+groups = ["default"]
+dependencies = [
+    "google-auth",
+    "httplib2>=0.19.0",
+]
+files = [
+    {file = "google-auth-httplib2-0.2.0.tar.gz", hash = "sha256:38aa7badf48f974f1eb9861794e9c0cb2a0511a4ec0679b1f886d108f5640e05"},
+    {file = "google_auth_httplib2-0.2.0-py2.py3-none-any.whl", hash = "sha256:b65a0a2123300dd71281a7bf6e64d65a0759287df52729bdd1ae2e47dc311a3d"},
+]
+
+[[package]]
 name = "google-generativeai"
-version = "0.4.1"
+version = "0.5.0"
 requires_python = ">=3.9"
 summary = "Google Generative AI High level API client library and tools."
 groups = ["default"]
 dependencies = [
-    "google-ai-generativelanguage==0.4.0",
+    "google-ai-generativelanguage==0.6.1",
     "google-api-core",
+    "google-api-python-client",
     "google-auth>=2.15.0",
     "protobuf",
     "pydantic",
@@ -1066,7 +1204,7 @@ dependencies = [
     "typing-extensions",
 ]
 files = [
-    {file = "google_generativeai-0.4.1-py3-none-any.whl", hash = "sha256:89be3c00c2e688108fccefc50f47f45fc9d37ecd53c1ade9d86b5d982919c24a"},
+    {file = "google_generativeai-0.5.0-py3-none-any.whl", hash = "sha256:207ed12c6a2eeab549a45abbf5373c82077f62b16030bdb502556c78f6d1b5d2"},
 ]
 
 [[package]]
@@ -1198,6 +1336,20 @@ dependencies = [
 files = [
     {file = "httpcore-1.0.5-py3-none-any.whl", hash = "sha256:421f18bac248b25d310f3cacd198d55b8e6125c107797b609ff9b7a6ba7991b5"},
     {file = "httpcore-1.0.5.tar.gz", hash = "sha256:34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"},
+]
+
+[[package]]
+name = "httplib2"
+version = "0.22.0"
+requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+summary = "A comprehensive HTTP client library."
+groups = ["default"]
+dependencies = [
+    "pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2; python_version > \"3.0\"",
+]
+files = [
+    {file = "httplib2-0.22.0-py3-none-any.whl", hash = "sha256:14ae0a53c1ba8f3d37e9e27cf37eabb0fb9980f435ba405d546948b009dd64dc"},
+    {file = "httplib2-0.22.0.tar.gz", hash = "sha256:d7a10bc5ef5ab08322488bde8c726eeee5c8618723fdb399597ec58f3d82df81"},
 ]
 
 [[package]]
@@ -1345,14 +1497,25 @@ files = [
 ]
 
 [[package]]
-name = "joblib"
-version = "1.3.2"
+name = "jmespath"
+version = "1.0.1"
 requires_python = ">=3.7"
+summary = "JSON Matching Expressions"
+groups = ["default"]
+files = [
+    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
+    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
+]
+
+[[package]]
+name = "joblib"
+version = "1.4.0"
+requires_python = ">=3.8"
 summary = "Lightweight pipelining with Python functions"
 groups = ["default"]
 files = [
-    {file = "joblib-1.3.2-py3-none-any.whl", hash = "sha256:ef4331c65f239985f3f2220ecc87db222f08fd22097a3dd5698f693875f8cbb9"},
-    {file = "joblib-1.3.2.tar.gz", hash = "sha256:92f865e621e17784e7955080b6d042489e3b8e294949cc44c6eac304f59772b1"},
+    {file = "joblib-1.4.0-py3-none-any.whl", hash = "sha256:42942470d4062537be4d54c83511186da1fc14ba354961a2114da91efa9a4ed7"},
+    {file = "joblib-1.4.0.tar.gz", hash = "sha256:1eb0dc091919cd384490de890cb5dfd538410a6d4b3b54eef09fb8c50b409b1c"},
 ]
 
 [[package]]
@@ -1509,8 +1672,27 @@ files = [
 ]
 
 [[package]]
+name = "langfuse"
+version = "2.23.0"
+requires_python = "<4.0,>=3.8.1"
+summary = "A client library for accessing langfuse"
+groups = ["default"]
+dependencies = [
+    "backoff<3.0.0,>=2.2.1",
+    "chevron<0.15.0,>=0.14.0",
+    "httpx<1.0,>=0.15.4",
+    "packaging<24.0,>=23.2",
+    "pydantic<3.0,>=1.10.7",
+    "wrapt<2.0,>=1.14",
+]
+files = [
+    {file = "langfuse-2.23.0-py3-none-any.whl", hash = "sha256:9d7d15f7159b1219dda8a59583b8772b6ed289912ac79e0c6d58b9391f600f37"},
+    {file = "langfuse-2.23.0.tar.gz", hash = "sha256:cadb19b9cb30ac469b77ad741f3ffc496ff96cadd91ffd1ffed1083b96a29a38"},
+]
+
+[[package]]
 name = "langsmith"
-version = "0.1.40"
+version = "0.1.41"
 requires_python = "<4.0,>=3.8.1"
 summary = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 groups = ["default"]
@@ -1520,8 +1702,8 @@ dependencies = [
     "requests<3,>=2",
 ]
 files = [
-    {file = "langsmith-0.1.40-py3-none-any.whl", hash = "sha256:aa47d0f5a1eabd5c05ac6ce2cd3e28ccfc554d366e856a27b7c3c17c443881cb"},
-    {file = "langsmith-0.1.40.tar.gz", hash = "sha256:50fdf313741cf94e978de06025fd180b56acf1d1a4549b0fd5453ef23d5461ef"},
+    {file = "langsmith-0.1.41-py3-none-any.whl", hash = "sha256:11de22b6990502c630fdfdf6906681e664c6659d2118bcd2b79d08016e770831"},
+    {file = "langsmith-0.1.41.tar.gz", hash = "sha256:1250cd6c9074ca10d40002b23d79b3017329b139fbe954248fdd7a79544e90d0"},
 ]
 
 [[package]]
@@ -2534,6 +2716,21 @@ files = [
 ]
 
 [[package]]
+name = "peewee-migrate"
+version = "1.12.2"
+requires_python = ">=3.8,<4.0"
+summary = "Support for migrations in Peewee ORM"
+groups = ["default"]
+dependencies = [
+    "click",
+    "peewee<4,>=3",
+]
+files = [
+    {file = "peewee_migrate-1.12.2-py3-none-any.whl", hash = "sha256:2930bf83ef802cdb5fb123116c5eb87cbf3756cb27674f674923be6bb27dabee"},
+    {file = "peewee_migrate-1.12.2.tar.gz", hash = "sha256:c8187c97b756909ea57e77cce06ae66395219e86764ef0b286a7bc72ff7405ad"},
+]
+
+[[package]]
 name = "pillow"
 version = "10.3.0"
 requires_python = ">=3.8"
@@ -2873,6 +3070,18 @@ groups = ["default"]
 files = [
     {file = "pypandoc-1.13-py3-none-any.whl", hash = "sha256:4c7d71bf2f1ed122aac287113b5c4d537a33bbc3c1df5aed11a7d4a7ac074681"},
     {file = "pypandoc-1.13.tar.gz", hash = "sha256:31652073c7960c2b03570bd1e94f602ca9bc3e70099df5ead4cea98ff5151c1e"},
+]
+
+[[package]]
+name = "pyparsing"
+version = "3.1.2"
+requires_python = ">=3.6.8"
+summary = "pyparsing module - Classes and methods to define and execute parsing grammars"
+groups = ["default"]
+marker = "python_version > \"3.0\""
+files = [
+    {file = "pyparsing-3.1.2-py3-none-any.whl", hash = "sha256:f9db75911801ed778fe61bb643079ff86601aca99fcae6345aa67292038fb742"},
+    {file = "pyparsing-3.1.2.tar.gz", hash = "sha256:a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"},
 ]
 
 [[package]]
@@ -3280,6 +3489,20 @@ dependencies = [
 files = [
     {file = "rsa-4.9-py3-none-any.whl", hash = "sha256:90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7"},
     {file = "rsa-4.9.tar.gz", hash = "sha256:e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21"},
+]
+
+[[package]]
+name = "s3transfer"
+version = "0.10.1"
+requires_python = ">= 3.8"
+summary = "An Amazon S3 Transfer Manager"
+groups = ["default"]
+dependencies = [
+    "botocore<2.0a.0,>=1.33.2",
+]
+files = [
+    {file = "s3transfer-0.10.1-py3-none-any.whl", hash = "sha256:ceb252b11bcf87080fb7850a224fb6e05c8a776bab8f2b64b7f25b969464839d"},
+    {file = "s3transfer-0.10.1.tar.gz", hash = "sha256:5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"},
 ]
 
 [[package]]
@@ -3882,7 +4105,7 @@ files = [
 
 [[package]]
 name = "typer"
-version = "0.12.1"
+version = "0.12.2"
 requires_python = ">=3.7"
 summary = "Typer, build great CLIs. Easy to code. Based on Python type hints."
 groups = ["default"]
@@ -3893,8 +4116,8 @@ dependencies = [
     "typing-extensions>=3.7.4.3",
 ]
 files = [
-    {file = "typer-0.12.1-py3-none-any.whl", hash = "sha256:43ebb23c8a358c3d623e31064359a65f50229d0bf73ae8dfd203f49d9126ae06"},
-    {file = "typer-0.12.1.tar.gz", hash = "sha256:72d218ef3c686aed9c6ff3ca25b238aee0474a1628b29c559b18b634cfdeca88"},
+    {file = "typer-0.12.2-py3-none-any.whl", hash = "sha256:e1accbaa7e2b2350753acec896ac30493ac573211a8d4603e88f8356217e01f7"},
+    {file = "typer-0.12.2.tar.gz", hash = "sha256:977929604fde12aeada011852ad9c64370501be6ac2eac248f3161cdc9eeb7c9"},
 ]
 
 [[package]]
@@ -4005,6 +4228,17 @@ dependencies = [
 files = [
     {file = "unstructured-client-0.22.0.tar.gz", hash = "sha256:d76351c456fcf4067f59135c09a35008a120103621a1ac94cf9448db28ef2e1e"},
     {file = "unstructured_client-0.22.0-py3-none-any.whl", hash = "sha256:140f7dd8515cc9be3276f66d6fb08d235ea35a50d4eb38a6ef82b60fc3d2fea0"},
+]
+
+[[package]]
+name = "uritemplate"
+version = "4.1.1"
+requires_python = ">=3.6"
+summary = "Implementation of RFC 6570 URI Templates"
+groups = ["default"]
+files = [
+    {file = "uritemplate-4.1.1-py2.py3-none-any.whl", hash = "sha256:830c08b8d99bdd312ea4ead05994a38e8936266f84b9a7878232db50b044e02e"},
+    {file = "uritemplate-4.1.1.tar.gz", hash = "sha256:4346edfc5c3b79f694bccd6d6099a322bbeb628dbf2cd86eea55a456ce5124f0"},
 ]
 
 [[package]]

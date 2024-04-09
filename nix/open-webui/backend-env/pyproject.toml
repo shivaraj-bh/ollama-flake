@@ -1,0 +1,54 @@
+
+[project]
+# PEP 621 project metadata
+# See https://www.python.org/dev/peps/pep-0621/
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "python-multipart",
+    "flask",
+    "flask-cors",
+    "python-socketio",
+    "python-jose",
+    "passlib[bcrypt]",
+    "uuid",
+    "requests",
+    "aiohttp",
+    "peewee",
+    "bcrypt",
+    "litellm==1.30.7",
+    "argon2-cffi",
+    "apscheduler",
+    "google-generativeai",
+    "langchain",
+    "langchain-community",
+    "fake-useragent",
+    "chromadb",
+    "sentence-transformers",
+    "pypdf",
+    "docx2txt",
+    "unstructured",
+    "markdown",
+    "pypandoc",
+    "pandas",
+    "openpyxl",
+    "pyxlsb",
+    "xlrd",
+    "opencv-python-headless",
+    "rapidocr-onnxruntime",
+    "faster-whisper",
+    "PyJWT",
+    "pyjwt[crypto]",
+    "black",
+    "peewee-migrate",
+    "boto3",
+    "fpdf2",
+    "langfuse",
+]
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+

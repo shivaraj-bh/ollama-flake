@@ -77,17 +77,17 @@
     "open-webui": {
       "flake": false,
       "locked": {
-        "lastModified": 1710988462,
-        "narHash": "sha256-1mVtr1cqQtD1BARGyNHJMPeUU68LCGOPYant4ucLD/8=",
-        "owner": "open-webui",
+        "lastModified": 1712658895,
+        "narHash": "sha256-Hyijb6NqERULeU10bIvjD7Spv6Rouhgqt5g0nsGvrVQ=",
+        "owner": "shivaraj-bh",
         "repo": "open-webui",
-        "rev": "2fa94956f4e500bf5c42263124c758d8613ee05e",
+        "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
         "type": "github"
       },
       "original": {
-        "owner": "open-webui",
-        "ref": "v0.1.114",
+        "owner": "shivaraj-bh",
         "repo": "open-webui",
+        "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
         "type": "github"
       }
     },

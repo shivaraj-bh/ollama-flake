@@ -48,33 +48,38 @@
           in
           {
             command = pkgs.writeShellApplication {
-              name = "open-webui";
-              runtimeInputs = [ self'.packages.open-webui-backend.pyEnv ];
+              name = "open-webui-wrapper";
+              runtimeInputs = [ pkgs.open-webui ];
+              runtimeEnv = {
+                # TODO: protocol must be an option
+                OLLAMA_API_BASE_URL = "http://${ollama-cfg.host}:${builtins.toString ollama-cfg.port}/api";
+                WEBUI_PORT = "1112";
+                WEBUI_HOST = "0.0.0.0";
+              };
               text = ''
                 set -x
                 # TODO: make a service and give it a dataDir option
-                if [ -d ./data/open-webui ]; then
-                  rm -rf ./data/open-webui
+                if [ ! -d ./data/open-webui ]; then
+                  mkdir -p ./data/open-webui
                 fi
-                mkdir -p ./data/open-webui/build
-                cp -r ${inputs.open-webui}/. ./data/open-webui
-                # There is FRONTEND_BUILD_DIR, but backend is hardcoded to find some components of the frontend in the parent directory, like the favicon in `backend/config.py`
-            
-                cp -r ${pkgs.open-webui-frontend}/share/open-webui/. ./data/open-webui/build
-                chmod -R u+rw ./data/open-webui
-                cd ./data/open-webui/backend
 
-                # TODO: protocol must be an option
-                OLLAMA_API_BASE_URL=http://${ollama-cfg.host}:${builtins.toString ollama-cfg.port}/api
-                export OLLAMA_API_BASE_URL
-                uvicorn main:app --host 0.0.0.0 --port 1111 --forwarded-allow-ips '*'
+                DATA_DIR=$(readlink -f ./data/open-webui)
+                STATIC_DIR=$DATA_DIR/static
+
+                if [ ! -d "$STATIC_DIR" ]; then
+                  mkdir -p "$STATIC_DIR"
+                fi
+
+                export DATA_DIR STATIC_DIR
+
+                open-webui
               '';
             };
             readiness_probe = {
               http_get = {
                 # TODO: wire the host and port config after open-webui is extracted to be a service
                 host = "0.0.0.0";
-                port = 1111;
+                port = 1112;
               };
               initial_delay_seconds = 2;
               period_seconds = 10;
@@ -92,7 +97,7 @@
             # TODO: wire the host and port config after open-webui is extracted to be a service
             text = ''
               ${ if pkgs.stdenv.isLinux then "xdg-open http://0.0.0.0:1111" else "" }
-              ${ if pkgs.stdenv.isDarwin then "open http://0.0.0.0:1111" else "" }
+              ${ if pkgs.stdenv.isDarwin then "open http://0.0.0.0:1112" else "" }
             '';
           };
           depends_on."open-webui".condition = "process_healthy";
