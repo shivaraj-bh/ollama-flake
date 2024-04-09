@@ -16,18 +16,18 @@
         inputs.process-compose-flake.flakeModule
         inputs.ollama-flake.flakeModules.nixpkgs
       ];
-      perSystem = { self', pkgs, config, system, ... }:{
-          process-compose.default = {
-            imports = [
-              inputs.services-flake.processComposeModules.default
-              inputs.ollama-flake.processComposeModules.default
-            ];
+      perSystem = { self', pkgs, config, system, ... }: {
+        process-compose.default = {
+          imports = [
+            inputs.services-flake.processComposeModules.default
+            inputs.ollama-flake.processComposeModules.default
+          ];
 
-            services.ollama-stack = {
-              enable = true;
-              open-webui.enable = true;
-            };
+          services.ollama-stack = {
+            enable = true;
+            open-webui.enable = true;
           };
         };
+      };
     };
 }

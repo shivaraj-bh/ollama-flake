@@ -17,24 +17,24 @@
         inputs.ollama-flake.flakeModules.nixpkgs
       ];
       perSystem = { self', pkgs, config, system, ... }: {
-          process-compose.default = {
-            imports = [
-              inputs.services-flake.processComposeModules.default
-              inputs.ollama-flake.processComposeModules.default
-            ];
+        process-compose.default = {
+          imports = [
+            inputs.services-flake.processComposeModules.default
+            inputs.ollama-flake.processComposeModules.default
+          ];
 
-            services.ollama-stack = {
-              enable = true;
-              open-webui.enable = true;
-              extraOllamaConfig = {
-                package = pkgs.ollama.override { acceleration = "cuda"; };
-                extraEnvs = {
-                  # # See https://github.com/ollama/ollama/blob/9768e2dc7574c36608bb04ac39a3b79e639a837f/docs/gpu.md?plain=1#L32-L38
-                  # CUDA_VISIBLE_DEVICES = "0,2";
-                };
+          services.ollama-stack = {
+            enable = true;
+            open-webui.enable = true;
+            extraOllamaConfig = {
+              package = pkgs.ollama.override { acceleration = "cuda"; };
+              extraEnvs = {
+                # # See https://github.com/ollama/ollama/blob/9768e2dc7574c36608bb04ac39a3b79e639a837f/docs/gpu.md?plain=1#L32-L38
+                # CUDA_VISIBLE_DEVICES = "0,2";
               };
             };
           };
         };
+      };
     };
 }
