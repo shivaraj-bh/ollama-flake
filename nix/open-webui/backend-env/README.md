@@ -13,3 +13,9 @@ And to generate the `pdm.lock` file using the `pyproject.toml`:
 ```sh
 nix run ./dev#lock --override-input ollama-flake .
 ```
+
+Or do both in one command (after entering the `devShell` of `./dev/flake.nix`):
+
+```sh
+just pdm-update
+```
