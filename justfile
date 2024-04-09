@@ -17,7 +17,7 @@ ex-rocm:
 # Update pdm.lock (locks open-webui's python deps) 
 pdm-update:
   # Convert `requirements.txt` to `pyproject.toml`
-  nix run ./dev#req2py
-  nix run ./dev#lock
+  nix run ./dev#req2py --override-input ollama-flake .
+  nix run ./dev#lock --override-input ollama-flake .
 
 

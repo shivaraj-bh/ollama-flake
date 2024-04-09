@@ -1,11 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems.url = "github:nix-systems/default";
 
     ollama-flake.url = "github:shivaraj-bh/ollama-flake";
-    ollama-flake.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.follows = "ollama-flake/nixpkgs";
   };
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {

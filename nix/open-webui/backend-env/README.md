@@ -5,11 +5,11 @@ This package depends on `pyproject.toml` and `pdm.lock` file. The `pyproject.tom
 To generate the `pyproject.toml` run:
 
 ```sh
-nix run .#open-webui-backend-req2py
+nix run ./dev#req2py --override-input ollama-flake .
 ```
 
 And to generate the `pdm.lock` file using the `pyproject.toml`:
 
 ```sh
-nix run .#open-webui-backend-lock
+nix run ./dev#lock --override-input ollama-flake .
 ```

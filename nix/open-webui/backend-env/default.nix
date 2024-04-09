@@ -1,4 +1,4 @@
-{ inputs, config, dream2nix, ... }: {
+{ ollama-flake-inputs, config, dream2nix, ... }: {
   imports = [
     dream2nix.modules.dream2nix.WIP-python-pdm
   ];
@@ -11,7 +11,7 @@
   name = "open-webui-backend";
 
   mkDerivation = {
-    src = inputs.open-webui + /backend;
+    src = ollama-flake-inputs.open-webui + /backend;
     buildInputs = [
       config.deps.python.pkgs.pdm-backend
     ];
@@ -44,7 +44,7 @@
 
         which python3 > .pdm-python
 
-        pdm -c ${pdmConfig} import ${inputs.open-webui}/backend/requirements.txt
+        pdm -c ${pdmConfig} import ${ollama-flake-inputs.open-webui}/backend/requirements.txt
 
         popd
       '';
