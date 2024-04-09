@@ -25,7 +25,7 @@ nix run github:shivaraj-bh/ollama-flake#rocm
 - [ ] Test GPU acceleration and document the process
   - [x] Tested on CUDA. Need to document the driver compatiblity issues, with solutions.
 - [x] MacOS support <https://github.com/shivaraj-bh/ollama-flake/pull/3>
-- [ ] Export `processComposeModule` and add examples
+- [x] Export `processComposeModule` and add examples
 - [ ] Add tests/CI
 - [ ] Export home-manager configuration for ollama server (inspired by NixOS' ollama service module)
 
