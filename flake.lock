@@ -22,24 +22,6 @@
         "type": "github"
       }
     },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1709336216,
-        "narHash": "sha256-Dt/wOWeW6Sqm11Yh+2+t0dfEWxoMxGBvv3JpIocFl9E=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "f7b3c975cf067e56e7cda6cb098ebe3fb4d74ca2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1711231723,
@@ -52,24 +34,6 @@
       "original": {
         "owner": "nixos",
         "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-lib": {
-      "locked": {
-        "dir": "lib",
-        "lastModified": 1709237383,
-        "narHash": "sha256-cy6ArO4k5qTx+l5o+0mL9f5fa86tYUX3ozE1S+Txlds=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1536926ef5621b09bba54035ae2bb6d806d72ac8",
-        "type": "github"
-      },
-      "original": {
-        "dir": "lib",
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -88,21 +52,6 @@
         "owner": "shivaraj-bh",
         "repo": "open-webui",
         "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
-        "type": "github"
-      }
-    },
-    "process-compose-flake": {
-      "locked": {
-        "lastModified": 1708624100,
-        "narHash": "sha256-zZPheCD9JGg2EtK4A9BsIdyl8447egOow4fjIfHFHRg=",
-        "owner": "Platonic-Systems",
-        "repo": "process-compose-flake",
-        "rev": "44d260ddba5a51570dee54d5cd4d8984edaf98c2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Platonic-Systems",
-        "repo": "process-compose-flake",
         "type": "github"
       }
     },
@@ -148,28 +97,8 @@
     "root": {
       "inputs": {
         "dream2nix": "dream2nix",
-        "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
-        "open-webui": "open-webui",
-        "process-compose-flake": "process-compose-flake",
-        "services-flake": "services-flake",
-        "systems": "systems"
-      }
-    },
-    "services-flake": {
-      "locked": {
-        "lastModified": 1712170325,
-        "narHash": "sha256-Z3JFjB7Pas9aQeBH2LqY81MH1ZRG+rf2Mw0YF7W2wvQ=",
-        "owner": "juspay",
-        "repo": "services-flake",
-        "rev": "d1fb893b83378a9cdcdecf26bdf460e49d8c2fc0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "juspay",
-        "ref": "ollama",
-        "repo": "services-flake",
-        "type": "github"
+        "open-webui": "open-webui"
       }
     },
     "slimlock": {
@@ -191,21 +120,6 @@
       "original": {
         "owner": "thomashoneyman",
         "repo": "slimlock",
-        "type": "github"
-      }
-    },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
         "type": "github"
       }
     }

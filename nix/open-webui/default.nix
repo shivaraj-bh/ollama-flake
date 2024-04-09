@@ -2,7 +2,7 @@ inputs:
 { lib
 , buildNpmPackage
 , fetchFromGitHub
-, open-webui-backend-env
+, open-webui-backend
 , writeShellApplication
 , mktemp
 }:
@@ -36,7 +36,7 @@ let
 in
 writeShellApplication {
   name = "open-webui";
-  runtimeInputs = [ open-webui-backend-env mktemp ];
+  runtimeInputs = [ open-webui-backend.pyEnv mktemp ];
   runtimeEnv = {
     FRONTEND_BUILD_DIR = "${frontend}/share/open-webui";
   };

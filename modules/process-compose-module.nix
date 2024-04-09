@@ -1,4 +1,3 @@
-{ self', inputs }:
 { pkgs, config, lib, ... }:
 {
   options = {
