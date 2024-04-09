@@ -6,7 +6,7 @@
 
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     services-flake.url = "github:juspay/services-flake/ollama";
-    ollama-flake.url = "github:shivaraj-bh/ollama-flake";
+    ollama-flake.url = "path:../..";
     ollama-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs:
