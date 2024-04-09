@@ -4,20 +4,11 @@ Run Ollama stack (the [server](https://github.com/ollama/ollama) and [interactiv
 
 ## Getting started
 
-### CPU; with open-webui
 ```sh
-nix run github:shivaraj-bh/ollama-flake
+nix run "github:shivaraj-bh/ollama-flake?dir=example/cpu"
 ```
 
-### GPU; CUDA
-```sh
-nix run github:shivaraj-bh/ollama-flake#cuda
-```
-
-### GPU; ROCm
-```sh
-nix run github:shivaraj-bh/ollama-flake#rocm
-```
+See [examples](./example) to use them in your flake.
 
 ## Up Next
 
