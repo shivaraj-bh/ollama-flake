@@ -19,6 +19,27 @@
             type = lib.types.submodule {
               options = {
                 enable = lib.mkEnableOption "Enable open-webui, an interactive chat web app";
+                port = lib.mkOption {
+                  type = lib.types.int;
+                  default = 1111;
+                  description = ''
+                    Port for open-webui.
+                  '';
+                };
+                host = lib.mkOption {
+                  type = lib.types.str;
+                  default = "0.0.0.0";
+                  description = ''
+                    Host for open-webui.
+                  '';
+                };
+                dataDir = lib.mkOption {
+                  type = lib.types.str;
+                  default = "./data/open-webui";
+                  description = ''
+                    Data directory for open-webui.
+                  '';
+                };
               };
             };
             default = { };
@@ -51,19 +72,17 @@
               name = "open-webui-wrapper";
               runtimeInputs = [ pkgs.open-webui ];
               runtimeEnv = {
-                # TODO: protocol must be an option
                 OLLAMA_API_BASE_URL = "http://${ollama-cfg.host}:${builtins.toString ollama-cfg.port}/api";
-                WEBUI_PORT = "1112";
-                WEBUI_HOST = "0.0.0.0";
+                WEBUI_PORT = cfg.open-webui.port;
+                WEBUI_HOST = cfg.open-webui.host;
               };
               text = ''
                 set -x
-                # TODO: make a service and give it a dataDir option
-                if [ ! -d ./data/open-webui ]; then
-                  mkdir -p ./data/open-webui
+                if [ ! -d ${cfg.open-webui.dataDir} ]; then
+                  mkdir -p ${cfg.open-webui.dataDir} 
                 fi
 
-                DATA_DIR=$(readlink -f ./data/open-webui)
+                DATA_DIR=$(readlink -f ${cfg.open-webui.dataDir})
                 STATIC_DIR=$DATA_DIR/static
 
                 if [ ! -d "$STATIC_DIR" ]; then
@@ -77,9 +96,8 @@
             };
             readiness_probe = {
               http_get = {
-                # TODO: wire the host and port config after open-webui is extracted to be a service
-                host = "0.0.0.0";
-                port = 1112;
+                host = cfg.open-webui.host;
+                port = cfg.open-webui.port;
               };
               initial_delay_seconds = 2;
               period_seconds = 10;
@@ -96,8 +114,8 @@
             runtimeInputs = if pkgs.stdenv.isLinux then [ pkgs.xdg-utils ] else [ ];
             # TODO: wire the host and port config after open-webui is extracted to be a service
             text = ''
-              ${ if pkgs.stdenv.isLinux then "xdg-open http://0.0.0.0:1111" else "" }
-              ${ if pkgs.stdenv.isDarwin then "open http://0.0.0.0:1112" else "" }
+              ${ if pkgs.stdenv.isLinux then "xdg-open http://${cfg.open-webui.host}:${cfg.open-webui.port}" else "" }
+              ${ if pkgs.stdenv.isDarwin then "open http://${cfg.open-webui.host}:${cfg.open-webui.port}" else "" }
             '';
           };
           depends_on."open-webui".condition = "process_healthy";
