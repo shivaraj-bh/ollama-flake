@@ -73,7 +73,7 @@
               runtimeInputs = [ pkgs.open-webui ];
               runtimeEnv = {
                 OLLAMA_API_BASE_URL = "http://${ollama-cfg.host}:${builtins.toString ollama-cfg.port}/api";
-                WEBUI_PORT = cfg.open-webui.port;
+                WEBUI_PORT = "${builtins.toString cfg.open-webui.port}";
                 WEBUI_HOST = cfg.open-webui.host;
               };
               text = ''
@@ -112,10 +112,9 @@
           command = pkgs.writeShellApplication {
             name = "open-browser";
             runtimeInputs = if pkgs.stdenv.isLinux then [ pkgs.xdg-utils ] else [ ];
-            # TODO: wire the host and port config after open-webui is extracted to be a service
             text = ''
-              ${ if pkgs.stdenv.isLinux then "xdg-open http://${cfg.open-webui.host}:${cfg.open-webui.port}" else "" }
-              ${ if pkgs.stdenv.isDarwin then "open http://${cfg.open-webui.host}:${cfg.open-webui.port}" else "" }
+              ${ if pkgs.stdenv.isLinux then "xdg-open http://${cfg.open-webui.host}:${builtins.toString cfg.open-webui.port}" else "" }
+              ${ if pkgs.stdenv.isDarwin then "open http://${cfg.open-webui.host}:${builtins.toString cfg.open-webui.port}" else "" }
             '';
           };
           depends_on."open-webui".condition = "process_healthy";
