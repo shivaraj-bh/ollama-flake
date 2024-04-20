@@ -7,11 +7,11 @@ ollama-flake-inputs:
         packageSets.nixpkgs = ollama-flake-inputs.dream2nix.inputs.nixpkgs.legacyPackages.${system};
         specialArgs = { inherit ollama-flake-inputs; };
         modules = [
-          ../nix/open-webui/backend-env
+          ../pkgs/open-webui/backend-env
           {
             paths.projectRoot = ../.;
             paths.projectRootFile = "flake.nix";
-            paths.package = ../nix/open-webui/backend-env;
+            paths.package = ../pkgs/open-webui/backend-env;
           }
         ];
       };
@@ -27,7 +27,7 @@ ollama-flake-inputs:
         overlays = [
           (self: _: with self; {
             inherit open-webui-backend;
-            open-webui = callPackage (import ../nix/open-webui { inherit (ollama-flake-inputs) open-webui; }) { };
+            open-webui = callPackage (import ../pkgs/open-webui { inherit (ollama-flake-inputs) open-webui; }) { };
           })
         ];
       };

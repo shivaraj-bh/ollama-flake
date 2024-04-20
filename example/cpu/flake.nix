@@ -5,8 +5,7 @@
     systems.url = "github:nix-systems/default";
 
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
-    services-flake.url = "github:juspay/services-flake/ollama";
-    ollama-flake.url = "path:../..";
+    ollama-flake.url = "github:shivaraj-bh/ollama-flake";
     ollama-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs:
@@ -19,14 +18,17 @@
       perSystem = { self', pkgs, config, system, ... }: {
         process-compose.default = {
           imports = [
-            inputs.services-flake.processComposeModules.default
             inputs.ollama-flake.processComposeModules.default
           ];
 
-          services.ollama-stack = {
+          services.ollama = {
             enable = true;
-            open-webui.enable = true;
+            # Find more models at https://ollama.com/library
+            models = [ "llama2-uncensored" ];
           };
+
+          # Frontend client for Ollama
+          services.open-webui.enable = true;
         };
       };
     };

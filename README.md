@@ -5,22 +5,13 @@ Run Ollama stack (the [server](https://github.com/ollama/ollama) and [interactiv
 ## Getting started
 
 ```sh
-nix run "github:shivaraj-bh/ollama-flake?dir=example/cpu"
+mkdir my-ollama-flake && cd ./my-ollama-flake
+nix flake init -t github:shivaraj-bh/ollama-flake
+nix run
 ```
 
-See [examples](./example) to use them in your flake.
-
-## Up Next
-
-- [x] Open browser (`xdg-open` on Linux and `open` on MacOS) after the frontend process starts
-- [ ] Test GPU acceleration and document the process
-  - [x] Tested on CUDA. Need to document the driver compatiblity issues, with solutions.
-- [x] MacOS support <https://github.com/shivaraj-bh/ollama-flake/pull/3>
-- [x] Export `processComposeModule` and add examples
-- [ ] Add tests/CI
-- [ ] Export home-manager configuration for ollama server (inspired by NixOS' ollama service module)
+See [examples](./example) for more details.
 
 ## Discussions
 
 [Join our zulip](https://nixos.zulipchat.com/#narrow/stream/426237-nixify-llm)
-
