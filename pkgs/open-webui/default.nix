@@ -1,7 +1,5 @@
-inputs:
 { lib
 , buildNpmPackage
-, fetchFromGitHub
 , open-webui-backend
 , writeShellApplication
 , mktemp
@@ -9,13 +7,12 @@ inputs:
 let
   frontend = buildNpmPackage {
     pname = "open-webui-frontend";
-    version = "0.2";
 
-    src = inputs.open-webui;
+    inherit (open-webui-backend) version src;
 
-    npmDepsHash = "sha256-VW89XnzputCWw5dOAKg09kve7IMNlxGS6ShYEo1ZC7s=";
+    npmDepsHash = "sha256-uLp8QlPUR1dfchwu0IhJ8FFMMkm3V+FK2KBc41Un86g=";
 
-    npmBuildScript = "build";
+    env.CYPRESS_INSTALL_BINARY = "0"; # disallow cypress from downloading binaries in sandbox
 
     installPhase = ''
       runHook preInstall
@@ -60,7 +57,7 @@ writeShellApplication {
       export WEBUI_HOST
     fi
 
-    cd ${inputs.open-webui}/backend
+    cd ${open-webui-backend.src}/backend
     uvicorn main:app --host "$WEBUI_HOST" --port "$WEBUI_PORT" --forwarded-allow-ips '*' 
   '';
   meta = with lib; {

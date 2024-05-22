@@ -1,20 +1,31 @@
-{ ollama-flake-inputs, config, dream2nix, ... }: {
+{ config, dream2nix, ... }: {
   imports = [
     dream2nix.modules.dream2nix.WIP-python-pdm
   ];
 
   deps = { nixpkgs, ... }: {
     python = nixpkgs.python310;
-    inherit (nixpkgs) writeShellApplication;
+    inherit (nixpkgs)
+      writeShellApplication
+      fetchFromGitHub;
   };
 
   name = "open-webui-backend";
 
   mkDerivation = {
-    src = ollama-flake-inputs.open-webui + /backend;
+    src = config.public.src + /backend;
     buildInputs = [
       config.deps.python.pkgs.pdm-backend
     ];
+  };
+
+  public.version = "0.1.124";
+
+  public.src = config.deps.fetchFromGitHub {
+    owner = "open-webui";
+    repo = "open-webui";
+    rev = "v${config.public.version}";
+    hash = "sha256-r3oZiN2UIhPAG+ZcsZrXD1OemJrWXXlZdKVhK3+VhhU=";
   };
 
   public.req2py =
@@ -42,13 +53,17 @@
 
         pushd "$(${config.paths.findRoot})/${config.paths.package}"
 
+        [ -f pyproject.toml ] && rm pyproject.toml
+
         which python3 > .pdm-python
 
-        pdm -c ${pdmConfig} import ${ollama-flake-inputs.open-webui}/backend/requirements.txt
+        pdm -c ${pdmConfig} import ${config.public.src}/backend/requirements.txt
 
         popd
       '';
     };
+
+  # pip.requirementsFiles = [ "${config.mkDerivation.src}/requirements.txt" ];
 
   pdm.lockfile = ./pdm.lock;
   pdm.pyproject = ./pyproject.toml;
