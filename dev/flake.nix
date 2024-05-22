@@ -14,8 +14,9 @@
       ];
       perSystem = { self', pkgs, config, system, ... }: {
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.just
+          packages = with pkgs; [
+            just
+            nixd
           ];
           shellHook = ''
             echo
