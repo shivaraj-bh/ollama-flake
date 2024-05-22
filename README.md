@@ -1,6 +1,6 @@
 # ollama-flake
 
-Run Ollama stack (the [server](https://github.com/ollama/ollama) and [interactive webui](https://github.com/open-webui/open-webui)) natively, using [services-flake](https://github.com/juspay/services-flake).
+Run Ollama stack (the [server](https://github.com/ollama/ollama) and [interactive webui](https://github.com/open-webui/open-webui)) natively.
 
 ## Getting started
 
