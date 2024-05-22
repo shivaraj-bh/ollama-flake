@@ -80,34 +80,19 @@
         "dream2nix": "dream2nix",
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "open-webui": "open-webui"
+        ]
       },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-wJ21ZnKFMvbsrHl2CS3lgpw6jrcyOK8plfAfAqhmuqU=",
-        "path": "../..",
-        "type": "path"
-      },
-      "original": {
-        "path": "../..",
-        "type": "path"
-      }
-    },
-    "open-webui": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712658895,
-        "narHash": "sha256-Hyijb6NqERULeU10bIvjD7Spv6Rouhgqt5g0nsGvrVQ=",
+        "lastModified": 1716381664,
+        "narHash": "sha256-1iWNu6oT0vzbjzRU9iUWThl2GxC7ML9xi8lCAMHTrmg=",
         "owner": "shivaraj-bh",
-        "repo": "open-webui",
-        "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
+        "repo": "ollama-flake",
+        "rev": "5591c7be470fe6cbb2f9bc84b058553bfae10638",
         "type": "github"
       },
       "original": {
         "owner": "shivaraj-bh",
-        "repo": "open-webui",
-        "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
+        "repo": "ollama-flake",
         "type": "github"
       }
     },
@@ -172,24 +157,7 @@
         "nixpkgs": "nixpkgs",
         "ollama-flake": "ollama-flake",
         "process-compose-flake": "process-compose-flake",
-        "services-flake": "services-flake",
         "systems": "systems"
-      }
-    },
-    "services-flake": {
-      "locked": {
-        "lastModified": 1712170325,
-        "narHash": "sha256-Z3JFjB7Pas9aQeBH2LqY81MH1ZRG+rf2Mw0YF7W2wvQ=",
-        "owner": "juspay",
-        "repo": "services-flake",
-        "rev": "d1fb893b83378a9cdcdecf26bdf460e49d8c2fc0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "juspay",
-        "ref": "ollama",
-        "repo": "services-flake",
-        "type": "github"
       }
     },
     "slimlock": {
