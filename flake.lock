@@ -38,23 +38,6 @@
         "type": "github"
       }
     },
-    "open-webui": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712658895,
-        "narHash": "sha256-Hyijb6NqERULeU10bIvjD7Spv6Rouhgqt5g0nsGvrVQ=",
-        "owner": "shivaraj-bh",
-        "repo": "open-webui",
-        "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shivaraj-bh",
-        "repo": "open-webui",
-        "rev": "304bf9d9b13fa1937a5d5bbff710e4237ca2d62b",
-        "type": "github"
-      }
-    },
     "purescript-overlay": {
       "inputs": {
         "nixpkgs": [
@@ -97,8 +80,7 @@
     "root": {
       "inputs": {
         "dream2nix": "dream2nix",
-        "nixpkgs": "nixpkgs",
-        "open-webui": "open-webui"
+        "nixpkgs": "nixpkgs"
       }
     },
     "slimlock": {
