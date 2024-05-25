@@ -6,6 +6,10 @@ default:
 ex-cpu:
   cd ./example/cpu && nix run . --override-input ollama-flake ../..
 
+# Run example/private-gpt on cpu
+ex-pg:
+  cd ./example/private-gpt && nix run . --override-input ollama-flake ../..
+
 # Run example/cuda
 ex-cuda:
   cd ./example/cuda && nix run . --override-input ollama-flake ../..
