@@ -77,15 +77,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1716383711,
-        "narHash": "sha256-2pI6YSfCcFw6Kp89oqcMaLvyS0OnzyWmd0YfVwK/y5w=",
+        "lastModified": 1716657238,
+        "narHash": "sha256-1Gg3POGvOIQxqufNaFtkgd7UlushdfZ839xU056ploA=",
         "owner": "shivaraj-bh",
         "repo": "ollama-flake",
-        "rev": "faea89ec168684342aba3fb180705e3b97f79745",
+        "rev": "9ab91531ecbe30706c9a6395e8d9380cefb35575",
         "type": "github"
       },
       "original": {
         "owner": "shivaraj-bh",
+        "ref": "private-gpt",
         "repo": "ollama-flake",
         "type": "github"
       }

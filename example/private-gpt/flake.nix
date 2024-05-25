@@ -5,7 +5,7 @@
     systems.url = "github:nix-systems/default";
 
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
-    ollama-flake.url = "github:shivaraj-bh/ollama-flake";
+    ollama-flake.url = "github:shivaraj-bh/ollama-flake/private-gpt";
     ollama-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs:
