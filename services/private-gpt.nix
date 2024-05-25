@@ -97,7 +97,12 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
+    services.open-browser = {
+      enable = true;
+      inherit (cfg) port;
+    };
     settings.processes = {
+      open-browser.depends_on."private-gpt".condition = "process_healthy";
       private-gpt-init = {
         command = pkgs.writeShellApplication {
           name = "private-gpt-init";

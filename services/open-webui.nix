@@ -84,17 +84,11 @@ in
         };
       };
 
-      open-browser = {
-        command = pkgs.writeShellApplication {
-          name = "open-browser";
-          runtimeInputs = if pkgs.stdenv.isLinux then [ pkgs.xdg-utils ] else [ ];
-          text = ''
-            ${ if pkgs.stdenv.isLinux then "xdg-open http://${cfg.host}:${builtins.toString cfg.port}" else "" }
-            ${ if pkgs.stdenv.isDarwin then "open http://${cfg.host}:${builtins.toString cfg.port}" else "" }
-          '';
-        };
-        depends_on."open-webui".condition = "process_healthy";
-      };
+      open-browser.depends_on."open-webui".condition = "process_healthy";
+    };
+    services.open-browser = {
+      enable = true;
+      inherit (cfg) host port;
     };
   };
 }
