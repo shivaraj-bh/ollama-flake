@@ -33,6 +33,8 @@
 
           # Frontend client for Ollama
           services.private-gpt.enable = true;
+
+          settings.processes.private-gpt.depends_on."ollama-models".condition = "process_completed_successfully";
         };
       };
     };
